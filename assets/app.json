@@ -1,0 +1,24 @@
+{
+  "$app": {
+    "actions": [],
+    "attributes": {
+      "vzkey":"XA2AV4kUZubjtZ4K9ILMoOhei4FZxR7K",
+      "vzkey_kiip":"DgOhAlvkDJVj6yfX1obAk2YFbaqc1GVv",
+      "vzkey_kiip_app":"440c5e52f37554e536b1c12c79594954",
+      "view.index": "/view.json",
+      "debug.layout.enabled": false,
+      "logging.datasource.enabled": true,
+      "logging.level": "error",
+      "mode": "release",
+      "navigationBar.enabled": false,
+      "preloadImages": [
+        "assets/images/imgUserMe_38x53@2x.png",
+        "assets/images/imgUserTim_38x53@2x.png",
+        "assets/images/imgUserAnne_38x53@2x.png",
+        "assets/images/bgCarGarage.png",
+        "assets/images/bgCarZoom.png"
+      ]
+    },
+    "datasources": []
+  }
+}

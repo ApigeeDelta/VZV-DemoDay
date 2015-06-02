@@ -1,0 +1,532 @@
+{
+  "$view": {
+    "attributes": {
+      "_id": "garage",
+      "statusBar.style": "hidden",
+      "bg.color": "#cdcdcd"
+    },
+    "actions": [
+      {
+        "_type": "Refresh",
+        "attributes": {
+          "_target": "getHvac,getSecurity,getDishwasher"
+        },
+        "on": "willAppear"
+      }
+    ],
+    "controls": [
+      {
+        "_id": "layoutMain",
+        "_type": "Layout",
+        "attributes": {
+          "size.w": "100%",
+          "size.h": "100%",
+          "visible": true,
+          "bg.color": "000000",
+          "layoutType": "float"
+        },
+        "controls": [
+          {
+            "_id": "imageBackground",
+            "_type": "Image",
+            "actions": [
+              {
+                "_type": "Navigate",
+                "attributes": {
+                  "to": "view2.json",
+                  "animation.type": "flip.r"
+                },
+                "on": "touchUp"
+              }
+            ],
+            "attributes": {
+              "margin.top": 0,
+              "layoutType": "absolute",
+              "size.w": "100%",
+              "size.h": "100%",
+              "image": "/images/bgCarGarage.png"
+            }
+          },
+          {
+            "_id": "layoutScreen",
+            "_type": "Layout",
+            "attributes": {
+              "bg.color": "#00ff0000",
+              "visible": true,
+              "margin.left": 574,
+              "margin.top": 243,
+              "size.w": 380,
+              "size.h": 135
+            },
+            "controls": [
+              {
+                "_id": "layoutText",
+                "_type": "Layout",
+                "attributes": {
+                  "bg.color": "#000000",
+                  "visible": true,
+                  "layoutType": "absolute",
+                  "align.h": "left",
+                  "padding": 7,
+                  "size.w": 170,
+                  "size.h": 135
+                },
+                "controls": [
+                  {
+                    "_id": "layoutInfo",
+                    "_type": "Layout",
+                    "attributes": {
+                      "layoutFlow": "horizontal"
+                    },
+                    "controls": [
+                      {
+                        "_id": "iconHome",
+                        "_type": "Text",
+                        "attributes": {
+                          "color": "#2192d9",
+                          "font": "FontAwesome:20",
+                          "margin.top": 2,
+                          "margin.right": 5,
+                          "text": "fa-home",
+                          "text.align": "left"
+                        }
+                      },
+                      {
+                        "_id": "textHome",
+                        "_type": "Text",
+                        "attributes": {
+                          "color": "#2192d9",
+                          "font": "HelveticaNeue-Medium:20",
+                          "text": "Home",
+                          "text.align": "left"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "_id": "layoutTextInner",
+                    "_type": "Layout",
+                    "actions": [
+                      {
+                        "_type": "Alert",
+                        "attributes": {
+                          "title": "Get Value",
+                          "message": "Internal Temp: [[getHvac.response.body.with.0.content.status]]"
+                        },
+                        "on": "touchUp"
+                      }
+                    ],
+                    "attributes": {
+                      "margin.top": 15,
+                      "layoutFlow": "horizontal"
+                    },
+                    "controls": [
+                      {
+                        "_id": "textTempLabel",
+                        "_type": "Text",
+                        "attributes": {
+                          "color": "#ffffff",
+                          "font": "HelveticaNeue-Light:13",
+                          "text": "Internal temp: ",
+                          "text.align": "left"
+                        }
+                      },
+                      {
+                        "_id": "textTemp",
+                        "_type": "Text",
+                        "attributes": {
+                          "color": "#ffffff",
+                          "font": "HelveticaNeue-Medium:13",
+                          "text": "[[getHvac.response.body.with.0.content.status]]",
+                          "text.align": "left"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "_id": "layoutSecurity",
+                    "_type": "Layout",
+                    "attributes": {
+                      "margin.top": 5,
+                      "layoutFlow": "horizontal"
+                    },
+                    "actions": [
+                      {
+                        "_type": "Alert",
+                        "attributes": {
+                          "title": "Get Value",
+                          "message": "Security Status: [[textSecurity.text]]"
+                        },
+                        "on": "touchUp"
+                      }
+                    ],
+                    "controls": [
+                      {
+                        "_id": "textSecurityLabel",
+                        "_type": "Text",
+                        "attributes": {
+                          "color": "#ffffff",
+                          "font": "HelveticaNeue-Light:13",
+                          "text": "Security: ",
+                          "text.align": "left"
+                        }
+                      },
+                      {
+                        "_id": "textSecurity",
+                        "_type": "Text",
+                        "attributes": {
+                          "color": "#ffffff",
+                          "font": "HelveticaNeue-Medium:13",
+                          "text": "[[getSecurity.response.body.with.0.content.status]]",
+                          "text.align": "left"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "_id": "layoutDishwasher",
+                    "_type": "Layout",
+                    "attributes": {
+                      "margin.top": 5,
+                      "layoutFlow": "horizontal"
+                    },
+                    "actions": [
+                      {
+                        "_type": "Alert",
+                        "attributes": {
+                          "title": "Get Value",
+                          "message": "Dishwasher Status: [[textDishwasher.text]]"
+                        },
+                        "on": "touchUp"
+                      }
+                    ],
+                    "controls": [
+                      {
+                        "_id": "textDishwasherLabel",
+                        "_type": "Text",
+                        "attributes": {
+                          "color": "#ffffff",
+                          "font": "HelveticaNeue-Light:13",
+                          "text": "Dishwasher: ",
+                          "text.align": "left"
+                        }
+                      },
+                      {
+                        "_id": "textDishwasher",
+                        "_type": "Text",
+                        "attributes": {
+                          "color": "#ffffff",
+                          "font": "HelveticaNeue-Medium:13",
+                          "text": "[[getDishwasher.response.body.with.0.content.status]]",
+                          "text.align": "left"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "_id": "layoutMap",
+                "_type": "Layout",
+                "attributes": {
+                  "bg.color": "#ff00ff",
+                  "visible": true,
+                  "layoutType": "absolute",
+                  "align.v": "middle",
+                  "align.h": "right",
+                  "padding.right": 0,
+                  "size.w": 217,
+                  "size.h": 135
+                },
+                "controls": [
+                  {
+                    "_id": "mapControl",
+                    "_type": "Map",
+                    "actions": [
+                      {
+                        "_type": "Alert",
+                        "attributes": {
+                          "title": "You touched on [[$self.pin.title]]."
+                        },
+                        "on": "touchUp"
+                      }
+                    ],
+                    "attributes": {
+                      "animatePinDrop.enabled": true,
+                      "pin": {
+                        "lat": "[[$row.location.lat]]",
+                        "long": "[[$row.location.long]]",
+                        "title": "[[$row.name]]",
+                        "image": "[[$row.image]]"
+                      },
+                      "datasource.id": "users",
+                      "size.h": "100%",
+                      "size.w": "100%",
+                      "userLocation.enabled": true,
+                      "zoomLevel": 12
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "imageOverlay",
+            "_type": "Image",
+            "attributes": {
+              "margin.top": 0,
+              "enabled": false,
+              "layoutType": "absolute",
+              "size.w": "100%",
+              "size.h": "100%",
+              "image": "/images/overlayCarScreen.png"
+            }
+          }
+        ]
+      },
+      {
+        "_id": "textAPIConsole",
+        "_type": "Text",
+        "actions": [
+          {
+            "_type": "Navigate",
+            "attributes": {
+              "to": "apiconsole.json",
+              "1animation.type": "flip.r"
+            },
+            "on": "touchUp"
+          }
+        ],
+        "attributes": {
+          "color": "#ffffff",
+          "bg.color": "#ff00ff00",
+          "align.h": "right",
+          "size.h": 50,
+          "size.w": 50,
+          "text.align": "left",
+          "font": "FontAwesome:30",
+          "layoutType": "float",
+          "margin": 20,
+          "text": "fa-code"
+        }
+      }
+    ],
+    "datasources": [
+      {
+        "_id": "getHvac",
+        "_type": "HTTP",
+        "actions": [
+          {
+            "_type": "Alert",
+            "attributes": {
+              "title": "getHvac",
+              "message": "[[getHvac.response.body.with.0.content.status]] [[$self.with.content]]"
+            },
+            "enabled": false,
+            "on": "success"
+          },
+          {
+            "_type": "Refresh",
+            "attributes": {
+              "_target": "textTemp"
+            },
+            "on": "success"
+          }
+        ],
+        "attributes": {
+          "cache.enabled": false,
+          "autoLoad.enabled": true,
+          "method": "GET",
+          "responseType": "json",
+          "1url": "https://dweet.io/get/latest/dweet/for/c8ad1106-0cbb-4cda-8937-45b955591a55",
+          "url": "https://verizonventures-prod.apigee.net/dweet/get/latest/dweet/for/c8ad1106-0cbb-4cda-8937-45b955591a55?vzvkey=[[$app.vzkey]]",
+          "requestType": "json"
+        }
+      },
+      {
+        "_id": "getSecurity",
+        "_type": "HTTP",
+        "actions": [
+          {
+            "_type": "Alert",
+            "attributes": {
+              "title": "getHvac",
+              "message": "[[getSecurity.response.body.with.0.content.status]] [[$self.with.content]]"
+            },
+            "enabled": false,
+            "on": "success"
+          },
+          {
+            "_type": "Refresh",
+            "attributes": {
+              "_target": "textSecurity"
+            },
+            "on": "success"
+          }
+        ],
+        "attributes": {
+          "cache.enabled": false,
+          "autoLoad.enabled": true,
+          "method": "GET",
+          "responseType": "json",
+          "1url": "https://dweet.io/get/latest/dweet/for/1d63586f-cd78-4a98-ab99-31ff3e3026c7",
+          "url": "https://verizonventures-prod.apigee.net/dweet/get/latest/dweet/for/1d63586f-cd78-4a98-ab99-31ff3e3026c7?vzvkey=[[$app.vzkey]]",
+          "requestType": "json"
+        }
+      },
+      {
+        "_id": "getDishwasher",
+        "_type": "HTTP",
+        "actions": [
+          {
+            "_type": "Alert",
+            "attributes": {
+              "title": "getHvac",
+              "message": "[[getDishwasher.response.body.with.0.content.status]] [[$self.with.content]]"
+            },
+            "enabled": false,
+            "on": "success"
+          },
+          {
+            "_type": "Refresh",
+            "attributes": {
+              "_target": "textDishwasher"
+            },
+            "on": "success"
+          }
+        ],
+        "attributes": {
+          "cache.enabled": false,
+          "autoLoad.enabled": true,
+          "method": "GET",
+          "responseType": "json",
+          "1url": "https://dweet.io/get/latest/dweet/for/00681ec6-bd49-42c5-8b1b-d7978fd93deb",
+          "url": "https://verizonventures-prod.apigee.net/dweet/get/latest/dweet/for/00681ec6-bd49-42c5-8b1b-d7978fd93deb?vzvkey=[[$app.vzkey]]",
+          "requestType": "json"
+        }
+      },
+      {
+        "_id": "glympse0",
+        "_type": "HTTP",
+        "actions": [
+          {
+            "_type": "Alert",
+            "attributes": {
+              "title": "glympse0",
+              "message": "[[$self.response.body.response.password]]"
+            },
+            "enabled": false,
+            "on": "success"
+          },
+          {
+            "_type": "Refresh",
+            "attributes": {
+              "_target": "glympse1"
+            },
+            "on": "success"
+          }
+        ],
+        "attributes": {
+          "cache.enabled": false,
+          "autoLoad.enabled": true,
+          "method": "GET",
+          "responseType": "json",
+          "url": "https://verizonventures-prod.apigee.net/glympse/v2/account/create?vzvkey=[[$app.vzkey]]",
+          "requestType": "json"
+        }
+      },
+      {
+        "_id": "glympse1",
+        "_type": "HTTP",
+        "actions": [
+          {
+            "_type": "Alert",
+            "attributes": {
+              "title": "glympse1",
+              "message": "[[glympse1.response.body.response.access_token]]"
+            },
+            "enabled": false,
+            "on": "success"
+          },
+          {
+            "_type": "Refresh",
+            "attributes": {
+              "_target": "glympse2"
+            },
+            "on": "success"
+          }
+        ],
+        "attributes": {
+          "cache.enabled": false,
+          "autoLoad.enabled": false,
+          "method": "GET",
+          "responseType": "json",
+          "url": "https://verizonventures-prod.apigee.net/glympse/v2/account/login?vzvkey=[[$app.vzkey]]&id=[[glympse0.response.body.response.id]]&password=[[glympse0.response.body.response.password]]&device=nitin_2146934329_asdf09qw4tn&viewer=chrome_browser&device_name=nitin_test_phone&device_desc=Test_device",
+          "requestType": "json"
+        }
+      },
+      {
+        "_id": "glympse2",
+        "_type": "HTTP",
+        "actions": [
+          {
+            "_type": "Alert",
+            "attributes": {
+              "title": "glympse1",
+              "message": "[[$self.response.body.response]]"
+            },
+            "enabled": false,
+            "on": "success"
+          },
+          {
+            "_type": "Refresh",
+            "attributes": {
+              "_target": "glympse3"
+            },
+            "on": "success"
+          }
+        ],
+        "attributes": {
+          "cache.enabled": false,
+          "autoLoad.enabled": false,
+          "method": "GET",
+          "responseType": "json",
+          "url": "https://verizonventures-prod.apigee.net/glympse/v2/users/[[glympse0.response.body.response.id]]/create_ticket?vzvkey=[[$app.vzkey]]&duration=14400000&properties=true&oauth_token=[[glympse1.response.body.response.access_token]]",
+          "requestType": "json"
+        }
+      },
+      {
+        "_id": "users",
+        "_type": "HTTP",
+        "actions": [
+          {
+            "_type": "Function",
+            "attributes": {
+              "_target": "mapControl",
+              "functionName": "showAllPins",
+              "delay": 1
+            },
+            "enabled": true,
+            "on": "success"
+          },
+          {
+            "_type": "Refresh",
+            "attributes": {
+              "_target": "textD1ishwasher"
+            },
+            "on": "success"
+          }
+        ],
+        "attributes": {
+          "data.basepath": "entities",
+          "cache.enabled": false,
+          "autoLoad.enabled": true,
+          "method": "GET",
+          "responseType": "json",
+          "url": "/data/users.json",
+          "requestType": "json"
+        }
+      }
+    ]
+  }
+}
