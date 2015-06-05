@@ -598,8 +598,7 @@
               "align.h": "left",
               "size.h": 70,
               "size.w": 320,
-              "align.h":"right",
-              "margin.right":20,
+              "margin.right": 20,
               "layoutType": "float"
             }
           }
@@ -675,6 +674,7 @@
         "attributes": {
           "autoLoad.enabled": true,
           "method": "GET",
+          "requestType": "json",
           "responseType": "json",
           "url": "/data/data.json"
         }
@@ -728,10 +728,8 @@
           "responseType": "json",
           "url": "[[inputURL.text]]",
           "body": "[[inputBody.text]]",
-          "1body": {
-            "location": "Home",
-            "name": "Interior Temp",
-            "status": "71"
+          "headers": {
+            "Content-Type": "application/json"
           },
           "requestType": "json"
         }
